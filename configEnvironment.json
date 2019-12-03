@@ -6,7 +6,6 @@
         "dbUser": "yourdataBaseUser-production",
         "dbPass": "yourPassword-production",
         "path": "/app/",
-        "erro": "false",
         "color_fundo": "default",
         "color_menu": "default"
     },
@@ -18,7 +17,6 @@
         "dbUser": "yourdataBaseUser-stage",
         "dbPass": "yourPassword-stage",
         "path": "/app_stage/",
-        "erro": "true",
         "color_fundo": "blue",
         "color_menu": "blue"
     },{
@@ -29,7 +27,6 @@
         "dbUser": "yourdataBaseUser-dev",
         "dbPass": "yourPassword-dev",
         "path": "/app_dev/",
-        "erro": "true",
         "color_fundo": "red",
         "color_menu": "red"
     }
