@@ -35,19 +35,19 @@ class Environment {
     public function conectDB()
     {
         // Conectando com o Banco de Dados
-        $conexao = mysqli_connect($this->dbIP, $this->dbUser,  $this->dbPass, $this->dbName);
+        $consction = mysqli_connect($this->dbIP, $this->dbUser,  $this->dbPass, $this->dbName);
             
-        if (!$conexao) 
+        if (!$consction) 
         {
             die('Connect Error (' . mysqli_connect_errno() . ') '. mysqli_connect_error());
         } 
         if($conexao == TRUE)
         {
-            mysqli_query($conexao,"SET NAMES 'utf8'");
-            mysqli_query($conexao,'SET character_set_connection=utf8');
-            mysqli_query($conexao,'SET character_set_client=utf8');
-            mysqli_query($conexao,'SET character_set_results=utf8');
+            mysqli_query($consction,"SET NAMES 'utf8'");
+            mysqli_query($consction,'SET character_set_connection=utf8');
+            mysqli_query($consction,'SET character_set_client=utf8');
+            mysqli_query($consction,'SET character_set_results=utf8');
         }
-        return ($conexao);
+        return ($consction);
     }
 }
