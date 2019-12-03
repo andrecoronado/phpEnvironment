@@ -17,6 +17,6 @@ else{$GLOBALS['colorMenu']='style="background-color:'.$ambiente->color_menu.';"'
 
 $conection=$environment->conectDB());
 
-
-
-
+$import=$environment->importFilesFrom('app_stage');
+$export=$environment->exportFilesTo('app_stage');
+$diff=$environment->diffFiles('app_stage');
