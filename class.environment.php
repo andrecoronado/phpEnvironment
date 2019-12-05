@@ -30,8 +30,6 @@ class Environment {
                 $this->color_fundo = $registro->color_fundo;
                 $this->color_menu = $registro->color_menu;
             }
-            $temp=Environment::dirToArray($GLOBALS['ROOT_PATH'] . '/' . $registro->page);
-            $this->arrayPath[$registro->page]=$temp;
         } 
       }
       
@@ -53,8 +51,17 @@ class Environment {
         }
         return ($consction);
     }
+    
+    function getDir() {
+        $arquivo = file_get_contents($GLOBALS['CONFIG_JSON'].'/ambiente_config.json');
+        $json = json_decode($arquivo);
+        foreach($json as $registro){
+            $temp=Ambiente::dirToArray($GLOBALS['ROOT_PATH'] . '/' . $registro->page);
+            $this->arrayPath[$registro->page]=$temp;
+        }   
+    }
+    
     private function dirToArray($dir) {
-  
         $result = array();
         $arrayDir = scandir($dir);
         foreach ($arrayDir as $key => $value)
@@ -75,6 +82,7 @@ class Environment {
     }
 
     public function diffFiles($page) {
+        $tempFunction=Ambiente::getDir();
         foreach ($this->arrayPath as $key => $value)
         {
             if($key==$this->page){
@@ -120,6 +128,7 @@ class Environment {
     }
 
     public function exportFilesTo($page) {  //Copy files from this local path to $page path
+        $tempFunction=Ambiente::getDir();
         foreach ($this->arrayPath as $key => $value)
         {
             if($key==$this->page){
@@ -146,6 +155,7 @@ class Environment {
     }   
     
     public function importFilesFrom($page) {  //Copy files from $page local path to this local path
+        $tempFunction=Ambiente::getDir();
         foreach ($this->arrayPath as $key => $value)
         {
             if($key==$page){
